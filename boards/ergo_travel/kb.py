@@ -1,26 +1,26 @@
 import board
 
 from kmk.kmk_keyboard import KMKKeyboard as _KMKKeyboard
-from kmk.quickpin.pro_micro.boardsource_blok import pinout as pins
+from kmk.quickpin.pro_micro.sparkfun_promicro_rp2040 import pinout as pins
 from kmk.scanners import DiodeOrientation
 
 
 class KMKKeyboard(_KMKKeyboard):
     row_pins = (pins[7], pins[8], pins[9], pins[10])
     col_pins = (
+        pins[18],
         pins[17],
         pins[16],
         pins[15],
         pins[14],
         pins[13],
         pins[12],
-        pins[10],
     )
     diode_orientation = DiodeOrientation.COLUMNS
     led_pin = pins[9]
-    rgb_pixel_pin = pins[0]
+    rgb_pixel_pin = pins[1]
     rgb_num_pixels = 12
-    data_pin = pins[1]
+    data_pin = pins[0]
     i2c = board.I2C
 
     # NOQA
